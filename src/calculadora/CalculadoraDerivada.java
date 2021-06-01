@@ -10,10 +10,13 @@ package calculadora;
  * @author Dtrujillo
  */
 public class CalculadoraDerivada extends javax.swing.JFrame {
-
     /**
      * Creates new form CalculadoraDerivada
      */
+    private boolean punto=true; //sirve para el punto
+    String valor1, valor2, signo, contenido;
+    Double resultado;
+    
     public CalculadoraDerivada() {
         initComponents();
     }
@@ -59,8 +62,11 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnparen2 = new javax.swing.JButton();
         btnlog = new javax.swing.JButton();
         btnpi = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Funcion A derivar:");
 
@@ -95,18 +101,33 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn8.setContentAreaFilled(false);
         btn8.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-8-icon_34775.png"))); // NOI18N
         btn8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-8-icon_34775.png"))); // NOI18N
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/9number_9_3071.png"))); // NOI18N
         btn9.setBorderPainted(false);
         btn9.setContentAreaFilled(false);
         btn9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-9-icon_34774.png"))); // NOI18N
         btn9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-9-icon_34774.png"))); // NOI18N
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btndel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btndel.setBorderPainted(false);
         btndel.setContentAreaFilled(false);
         btndel.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/elim.png"))); // NOI18N
         btndel.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/elim.png"))); // NOI18N
+        btndel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndelActionPerformed(evt);
+            }
+        });
 
         btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/4number_4_3829 (1).png"))); // NOI18N
         btn4.setBorderPainted(false);
@@ -114,36 +135,66 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-4-icon_34779.png"))); // NOI18N
         btn4.setRequestFocusEnabled(false);
         btn4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-4-icon_34779.png"))); // NOI18N
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
-        btnC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alpha_c_box_icon_135977.png"))); // NOI18N
+        btnC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Letter-C-icon_34763.png"))); // NOI18N
         btnC.setBorderPainted(false);
         btnC.setContentAreaFilled(false);
         btnC.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Letter-C-icon_34763.png"))); // NOI18N
         btnC.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Letter-C-icon_34763.png"))); // NOI18N
+        btnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCActionPerformed(evt);
+            }
+        });
 
         btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5_number_3827.png"))); // NOI18N
         btn5.setBorderPainted(false);
         btn5.setContentAreaFilled(false);
         btn5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-5-icon_34778.png"))); // NOI18N
         btn5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-5-icon_34778.png"))); // NOI18N
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/6_number_3075.png"))); // NOI18N
         btn6.setBorderPainted(false);
         btn6.setContentAreaFilled(false);
         btn6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-6-icon_34777.png"))); // NOI18N
         btn6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-6-icon_34777.png"))); // NOI18N
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btnx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
         btnx.setBorderPainted(false);
         btnx.setContentAreaFilled(false);
-        btnx.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-multiply-icon_34785.png"))); // NOI18N
-        btnx.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-multiply-icon_34785.png"))); // NOI18N
+        btnx.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
+        btnx.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
+        btnx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnxActionPerformed(evt);
+            }
+        });
 
         btndiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/division_box_icon_137684.png"))); // NOI18N
         btndiv.setBorderPainted(false);
         btndiv.setContentAreaFilled(false);
         btndiv.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486505258-divide-division-dote-square_81435.png"))); // NOI18N
         btndiv.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486505258-divide-division-dote-square_81435.png"))); // NOI18N
+        btndiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndivActionPerformed(evt);
+            }
+        });
 
         brtmenos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minus-gross-horizontal-straight-line-symbol_icon-icons.com_74137.png"))); // NOI18N
         brtmenos.setToolTipText("");
@@ -151,67 +202,123 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         brtmenos.setContentAreaFilled(false);
         brtmenos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486504817-delete-minus-cancel-exit-remove_81373.png"))); // NOI18N
         brtmenos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486504817-delete-minus-cancel-exit-remove_81373.png"))); // NOI18N
+        brtmenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brtmenosActionPerformed(evt);
+            }
+        });
 
         btnmas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add_icon-icons.com_74429.png"))); // NOI18N
         btnmas.setBorderPainted(false);
         btnmas.setContentAreaFilled(false);
         btnmas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plus_40632.png"))); // NOI18N
         btnmas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plus_40632.png"))); // NOI18N
+        btnmas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmasActionPerformed(evt);
+            }
+        });
 
         btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/2number_2_3079 (1).png"))); // NOI18N
         btn2.setBorderPainted(false);
         btn2.setContentAreaFilled(false);
         btn2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-2-icon_34781 (1).png"))); // NOI18N
         btn2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-2-icon_34781 (1).png"))); // NOI18N
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3number_3_3077 (1).png"))); // NOI18N
         btn3.setBorderPainted(false);
         btn3.setContentAreaFilled(false);
         btn3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-3-icon_34780 (1).png"))); // NOI18N
         btn3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-3-icon_34780 (1).png"))); // NOI18N
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1number_1_3831 (1).png"))); // NOI18N
         btn1.setBorderPainted(false);
         btn1.setContentAreaFilled(false);
         btn1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-1-icon_34782 (1).png"))); // NOI18N
         btn1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-1-icon_34782 (1).png"))); // NOI18N
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
-        btnpunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/point_icon_151143.png"))); // NOI18N
+        btnpunto.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        btnpunto.setText(".");
         btnpunto.setBorderPainted(false);
         btnpunto.setContentAreaFilled(false);
         btnpunto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/point_icon_151143.png"))); // NOI18N
         btnpunto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/point_icon_151143.png"))); // NOI18N
+        btnpunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpuntoActionPerformed(evt);
+            }
+        });
 
         btn0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
         btn0.setBorderPainted(false);
         btn0.setContentAreaFilled(false);
-        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
-        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
+        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
+        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
 
         btncos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
         btncos.setBorderPainted(false);
         btncos.setContentAreaFilled(false);
-        btncos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417 (1).png"))); // NOI18N
-        btncos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417 (1).png"))); // NOI18N
+        btncos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
+        btncos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
+        btncos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncosActionPerformed(evt);
+            }
+        });
 
         btnsin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
         btnsin.setBorderPainted(false);
         btnsin.setContentAreaFilled(false);
-        btnsin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417 (1).png"))); // NOI18N
-        btnsin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417 (1).png"))); // NOI18N
+        btnsin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
+        btnsin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
+        btnsin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsinActionPerformed(evt);
+            }
+        });
 
         btnigual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
         btnigual.setToolTipText("");
         btnigual.setBorderPainted(false);
         btnigual.setContentAreaFilled(false);
-        btnigual.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-equal-icon_34789.png"))); // NOI18N
-        btnigual.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-equal-icon_34789.png"))); // NOI18N
+        btnigual.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
+        btnigual.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
+        btnigual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnigualActionPerformed(evt);
+            }
+        });
 
         btntan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
         btntan.setBorderPainted(false);
         btntan.setContentAreaFilled(false);
-        btntan.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395 (1).png"))); // NOI18N
-        btntan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395 (1).png"))); // NOI18N
+        btntan.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
+        btntan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
+        btntan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntanActionPerformed(evt);
+            }
+        });
 
         btnelev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exponent_box_icon_136652.png"))); // NOI18N
         btnelev.setBorderPainted(false);
@@ -227,32 +334,68 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnraiz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
         btnraiz.setBorderPainted(false);
         btnraiz.setContentAreaFilled(false);
-        btnraiz.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Apps-libreoffice-math-icon_31774.png"))); // NOI18N
-        btnraiz.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Apps-libreoffice-math-icon_31774.png"))); // NOI18N
+        btnraiz.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
+        btnraiz.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
+        btnraiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnraizActionPerformed(evt);
+            }
+        });
 
-        btnparen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
+        btnparen1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnparen1.setText("(");
+        btnparen1.setToolTipText("");
         btnparen1.setBorderPainted(false);
         btnparen1.setContentAreaFilled(false);
         btnparen1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
         btnparen1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
+        btnparen1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnparen1ActionPerformed(evt);
+            }
+        });
 
-        btnparen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
+        btnparen2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnparen2.setText(")");
         btnparen2.setBorderPainted(false);
         btnparen2.setContentAreaFilled(false);
         btnparen2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
         btnparen2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
+        btnparen2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnparen2ActionPerformed(evt);
+            }
+        });
 
         btnlog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_log_icon_135415.png"))); // NOI18N
         btnlog.setBorderPainted(false);
         btnlog.setContentAreaFilled(false);
         btnlog.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log_29907.png"))); // NOI18N
         btnlog.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log_29907.png"))); // NOI18N
+        btnlog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogActionPerformed(evt);
+            }
+        });
 
         btnpi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
         btnpi.setBorderPainted(false);
         btnpi.setContentAreaFilled(false);
-        btnpi.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_mathematics_pi_icon_183159.png"))); // NOI18N
-        btnpi.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_mathematics_pi_icon_183159.png"))); // NOI18N
+        btnpi.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
+        btnpi.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
+        btnpi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpiActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jButton1.setText("+/-");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,37 +403,37 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
                         .addGap(18, 18, 18)
+                        .addComponent(txtFunction, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtFunction, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(btnDerivar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
                                 .addComponent(btncos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnigual))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
                                 .addComponent(btnelev)
-                                .addGap(2, 2, 2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnraiz)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btntan)))
                         .addGap(8, 8, 8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(txtFuncionSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(txtFuncionSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDerivar)
+                                .addGap(149, 149, 149)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn1)
@@ -323,20 +466,23 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnC))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn0)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnpunto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnsin))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnparen1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnparen2))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnlog)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnpi)))))
-                .addGap(41, 41, 41))
+                                .addComponent(btnpi)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnparen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnpunto, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnsin))
+                                    .addComponent(btnparen2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,33 +515,31 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFuncionSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnpunto)
                             .addComponent(btn0)
                             .addComponent(btnsin)
                             .addComponent(btncos)
+                            .addComponent(btnpunto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnigual))))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnDerivar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnparen2)
-                            .addComponent(btnparen1)
-                            .addComponent(btnelev)
-                            .addComponent(btnraiz)
-                            .addComponent(btntan))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnparen2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnparen1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnraiz, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btntan, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(btnelev)
+                    .addComponent(btnDerivar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnlog)
-                    .addComponent(btnpi))
-                .addContainerGap(164, Short.MAX_VALUE))
+                    .addComponent(btnpi)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -415,13 +559,141 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDerivarActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-       txtFunction.setText(txtFunction.getText()+"8");
+       txtFunction.setText(txtFunction.getText()+"7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btnelevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnelevActionPerformed
     txtFunction.setText(txtFunction.getText()+"^");
 // TODO add your handling code here:
     }//GEN-LAST:event_btnelevActionPerformed
+
+    private void btnmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmasActionPerformed
+       txtFunction.setText(txtFunction.getText()+"+");
+    }//GEN-LAST:event_btnmasActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        txtFunction.setText(txtFunction.getText()+"0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btnpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpuntoActionPerformed
+       contenido=txtFunction.getText();
+       //contenido menor o igual a 0, muestra "o"
+       //si el campo está vacio muestra "0."
+       if(contenido.length()<=0){
+            txtFunction.setText("0.");
+       } else
+           //contamos cuantos puntos existen, si existe un punto,
+           //no podra colocarse otro punto
+           if(txtFunction.getText().contains(".")){
+           }else{
+                       txtFunction.setText(txtFunction.getText()+".");
+                       punto=false;
+                       
+           }
+    }//GEN-LAST:event_btnpuntoActionPerformed
+        
+    private void btnsinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsinActionPerformed
+        txtFunction.setText(txtFunction.getText()+"sin");
+    }//GEN-LAST:event_btnsinActionPerformed
+
+    private void btncosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncosActionPerformed
+        txtFunction.setText(txtFunction.getText()+"cos");
+    }//GEN-LAST:event_btncosActionPerformed
+
+    private void btnigualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnigualActionPerformed
+        txtFunction.setText(txtFunction.getText()+"=");
+    }//GEN-LAST:event_btnigualActionPerformed
+
+    private void btnparen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparen1ActionPerformed
+       txtFunction.setText(txtFunction.getText()+"(");
+    }//GEN-LAST:event_btnparen1ActionPerformed
+
+    private void btnparen2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparen2ActionPerformed
+       txtFunction.setText(txtFunction.getText()+")");
+    }//GEN-LAST:event_btnparen2ActionPerformed
+
+    private void btnraizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraizActionPerformed
+        txtFunction.setText(txtFunction.getText()+"sqrt(");
+    }//GEN-LAST:event_btnraizActionPerformed
+
+    private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+         txtFunction.setText("");
+    }//GEN-LAST:event_btnCActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+      txtFunction.setText(txtFunction.getText()+"1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btntanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntanActionPerformed
+        txtFunction.setText(txtFunction.getText()+"tan");
+    }//GEN-LAST:event_btntanActionPerformed
+
+    private void btnlogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogActionPerformed
+        txtFunction.setText(txtFunction.getText()+"log");
+    }//GEN-LAST:event_btnlogActionPerformed
+
+    private void btnpiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpiActionPerformed
+        txtFunction.setText(txtFunction.getText()+"3.1416");
+    }//GEN-LAST:event_btnpiActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+       txtFunction.setText(txtFunction.getText()+"2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        txtFunction.setText(txtFunction.getText()+"3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void brtmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brtmenosActionPerformed
+       txtFunction.setText(txtFunction.getText()+"-");
+    }//GEN-LAST:event_brtmenosActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+      txtFunction.setText(txtFunction.getText()+"4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+       txtFunction.setText(txtFunction.getText()+"5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        txtFunction.setText(txtFunction.getText()+"6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btnxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxActionPerformed
+       txtFunction.setText(txtFunction.getText()+"*");
+    }//GEN-LAST:event_btnxActionPerformed
+
+    private void btndivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndivActionPerformed
+        txtFunction.setText(txtFunction.getText()+"/");
+    }//GEN-LAST:event_btndivActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+      txtFunction.setText(txtFunction.getText()+"8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        txtFunction.setText(txtFunction.getText()+"9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     contenido=txtFunction.getText();
+     if(contenido.length()>0){
+       resultado=(-1)*Double.parseDouble(contenido); 
+       txtFunction.setText(resultado.toString());
+       //Multiplicamoes el -1 para convertir un numero a positivo o negativo
+     }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btndelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndelActionPerformed
+       
+        //Boton borrar
+        contenido=txtFunction.getText();
+        if(contenido.length()>0){
+            contenido = contenido.substring(0,contenido.length()-1);
+            txtFunction.setText(contenido);
+        }
+    }//GEN-LAST:event_btndelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -487,6 +759,7 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
     private javax.swing.JButton btnsin;
     private javax.swing.JButton btntan;
     private javax.swing.JButton btnx;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtFuncionSalida;
