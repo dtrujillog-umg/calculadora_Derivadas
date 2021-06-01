@@ -238,6 +238,9 @@
           <Image iconType="3" name="/imagenes/Number-7-icon_34776.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn7ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn8">
       <Properties>
@@ -556,6 +559,9 @@
           <Image iconType="3" name="/imagenes/exponent_box_icon_136652.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnelevActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnraiz">
       <Properties>

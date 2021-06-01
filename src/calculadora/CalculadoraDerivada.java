@@ -84,6 +84,11 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn7.setContentAreaFilled(false);
         btn7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-7-icon_34776.png"))); // NOI18N
         btn7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-7-icon_34776.png"))); // NOI18N
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/8number_8_3824.png"))); // NOI18N
         btn8.setBorderPainted(false);
@@ -213,6 +218,11 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnelev.setContentAreaFilled(false);
         btnelev.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exponent_box_icon_136652.png"))); // NOI18N
         btnelev.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exponent_box_icon_136652.png"))); // NOI18N
+        btnelev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnelevActionPerformed(evt);
+            }
+        });
 
         btnraiz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
         btnraiz.setBorderPainted(false);
@@ -403,6 +413,15 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         txtFuncionSalida.setText(derivada.getFuncionDerivada());
         
     }//GEN-LAST:event_btnDerivarActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+       txtFunction.setText(txtFunction.getText()+"8");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btnelevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnelevActionPerformed
+    txtFunction.setText(txtFunction.getText()+"^");
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnelevActionPerformed
 
     /**
      * @param args the command line arguments
