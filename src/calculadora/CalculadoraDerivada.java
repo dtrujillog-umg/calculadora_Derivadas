@@ -115,7 +115,7 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn4.setRequestFocusEnabled(false);
         btn4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-4-icon_34779.png"))); // NOI18N
 
-        btnC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Letter-C-icon_34763.png"))); // NOI18N
+        btnC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alpha_c_box_icon_135977.png"))); // NOI18N
         btnC.setBorderPainted(false);
         btnC.setContentAreaFilled(false);
         btnC.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Letter-C-icon_34763.png"))); // NOI18N
@@ -136,8 +136,8 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
         btnx.setBorderPainted(false);
         btnx.setContentAreaFilled(false);
-        btnx.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
-        btnx.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/multiplication_box_icon_138361.png"))); // NOI18N
+        btnx.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-multiply-icon_34785.png"))); // NOI18N
+        btnx.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-multiply-icon_34785.png"))); // NOI18N
 
         btndiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/division_box_icon_137684.png"))); // NOI18N
         btndiv.setBorderPainted(false);
@@ -185,33 +185,33 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
         btn0.setBorderPainted(false);
         btn0.setContentAreaFilled(false);
-        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
-        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
+        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
+        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
 
         btncos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
         btncos.setBorderPainted(false);
         btncos.setContentAreaFilled(false);
-        btncos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
-        btncos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417.png"))); // NOI18N
+        btncos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417 (1).png"))); // NOI18N
+        btncos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_cos_icon_135417 (1).png"))); // NOI18N
 
         btnsin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
         btnsin.setBorderPainted(false);
         btnsin.setContentAreaFilled(false);
-        btnsin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
-        btnsin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417.png"))); // NOI18N
+        btnsin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417 (1).png"))); // NOI18N
+        btnsin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_sin_icon_137417 (1).png"))); // NOI18N
 
         btnigual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
         btnigual.setToolTipText("");
         btnigual.setBorderPainted(false);
         btnigual.setContentAreaFilled(false);
-        btnigual.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
-        btnigual.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_equals_icon_158292.png"))); // NOI18N
+        btnigual.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-equal-icon_34789.png"))); // NOI18N
+        btnigual.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Math-equal-icon_34789.png"))); // NOI18N
 
         btntan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
         btntan.setBorderPainted(false);
         btntan.setContentAreaFilled(false);
-        btntan.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
-        btntan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395.png"))); // NOI18N
+        btntan.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395 (1).png"))); // NOI18N
+        btntan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_tan_icon_138395 (1).png"))); // NOI18N
 
         btnelev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exponent_box_icon_136652.png"))); // NOI18N
         btnelev.setBorderPainted(false);
@@ -227,8 +227,8 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnraiz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
         btnraiz.setBorderPainted(false);
         btnraiz.setContentAreaFilled(false);
-        btnraiz.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
-        btnraiz.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/squareroot_cuadrad_3927.png"))); // NOI18N
+        btnraiz.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Apps-libreoffice-math-icon_31774.png"))); // NOI18N
+        btnraiz.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Apps-libreoffice-math-icon_31774.png"))); // NOI18N
 
         btnparen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentheses_icon_151165.png"))); // NOI18N
         btnparen1.setBorderPainted(false);
@@ -251,8 +251,8 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btnpi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
         btnpi.setBorderPainted(false);
         btnpi.setContentAreaFilled(false);
-        btnpi.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
-        btnpi.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pi_box_icon_135306.png"))); // NOI18N
+        btnpi.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_mathematics_pi_icon_183159.png"))); // NOI18N
+        btnpi.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/math_mathematics_pi_icon_183159.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
