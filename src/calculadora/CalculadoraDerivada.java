@@ -285,8 +285,8 @@ public class CalculadoraDerivada extends javax.swing.JFrame {
         btn0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
         btn0.setBorderPainted(false);
         btn0.setContentAreaFilled(false);
-        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
-        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/number_square_zero_icon_173664.png"))); // NOI18N
+        btn0.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
+        btn0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Number-0-icon_34783.png"))); // NOI18N
         btn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn0ActionPerformed(evt);
